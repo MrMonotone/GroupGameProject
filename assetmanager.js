@@ -9,7 +9,7 @@ AssetManager.prototype.queueDownload = function (path) {
 }
 
 AssetManager.prototype.downloadAsset = function (filePath) {
-    let asset;
+    let asset = undefined;
     switch (filePath) {
         case filePath:
             asset = this.downloadImage(filePath);

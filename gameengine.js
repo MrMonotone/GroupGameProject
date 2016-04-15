@@ -65,8 +65,7 @@ GameEngine.prototype.addEntity = function (entity) {
 GameEngine.prototype.draw = function () {
     this.ctx.clearRect(0, 0, this.ctx.canvas.width, this.ctx.canvas.height);
     this.ctx.save();
-    this.entities.forEach((entity) =>
-    {
+    this.entities.forEach((entity) => {
         entity.draw(this.ctx);
     },this);
     this.ctx.restore();
@@ -81,11 +80,6 @@ GameEngine.prototype.update = function () {
         entity.update();
     })
     this.entities = filteredEnt
-}
-
-GameEngine.prototype.filterRemoved = function ()
-{
-    return 
 }
 
 GameEngine.prototype.loop = function () {
