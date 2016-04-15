@@ -123,7 +123,6 @@ window.addEventListener("load", () => {
     var gameEngine = new GameEngine();
     var bg = new Background(gameEngine);
     var unicorn = new Unicorn(gameEngine);
-    //unicorn.draw(ctx)
     gameEngine.addEntity(bg);
     gameEngine.addEntity(unicorn);
     gameEngine.init(ctx);
