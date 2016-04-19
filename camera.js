@@ -1,15 +1,15 @@
 //Stolen from MDN
 
-function Camera(map, width, height) {
+function Camera(width, height) {
     this.x = 0;
     this.y = 0;
     this.width = width;
     this.height = height;
-    this.maxX = map.cols * map.tsize - width;
-    this.maxY = map.rows * map.tsize - height;
+    // this.maxX = map.cols * map.tsize - width;
+    // this.maxY = map.rows * map.tsize - height;
 }
 Camera.prototype = Object.create(Camera.prototype);
-Camera.prototype.constructor = Camera.BootState;
+Camera.prototype.constructor = Camera.prototype;
 
 Camera.SPEED = 256; // pixels per second
 
@@ -20,4 +20,9 @@ Camera.prototype.move = function (delta, dirx, diry) {
     // clamp values
     this.x = Math.max(0, Math.min(this.x, this.maxX));
     this.y = Math.max(0, Math.min(this.y, this.maxY));
+}
+
+Camera.prototype.moveTo = function (x, y) {
+    this.x = x;
+    this.y = y;
 }

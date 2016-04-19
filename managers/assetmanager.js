@@ -26,14 +26,14 @@ AssetManager.prototype.downloadAsset = function (filePath) {
 
 AssetManager.prototype.downloadImage = function(filePath) {
     return new Promise((resolve, reject) => {
-        let img = new Image()
+        var img = new Image()
         img.onload = function() {
             resolve(img)
         }
         img.onerror = function() {
             reject(new Error("Cannot Download:" + filePath))
         }
-        img.src = filePath
+        img.src = filePath;
         this.cache[filePath] = img;
     })
 }
@@ -41,9 +41,10 @@ AssetManager.prototype.downloadImage = function(filePath) {
 AssetManager.prototype.downloadAll = function (onComplete) {
     Promise.all(this.downloadQueue).then(() => {
         onComplete();
-    }).catch((error) => {
-        console.log("Feels bad man..." + error)
     })
+    // .catch((error) => {
+    //     console.log("Feels bad man..." + error)
+    // })
 }
 
 AssetManager.prototype.getAsset = function(path){
