@@ -5,7 +5,7 @@ function Map(dims, tdims)
 }
 
 Map.prototype.drawMap = function () {
-        map.layers.forEach(function (layer, index) {
+    map.layers.forEach(function (layer, index) {
         this.drawLayer(index);
     }, this);
 }

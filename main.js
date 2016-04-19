@@ -113,20 +113,23 @@ Unicorn.prototype.draw = function (ctx) {
 
 // the "main" code begins here
 
-var ASSET_MANAGER = new AssetManager();
-window.addEventListener("load", () => {
-    ASSET_MANAGER.queueDownload("./img/RobotUnicorn.png");
-    ASSET_MANAGER.downloadAll(() => {
-    console.log("starting up da sheild");
-    var canvas = document.getElementById('gameWorld');
-    var ctx = canvas.getContext('2d');
-    var gameEngine = new GameEngine();
-    var bg = new Background(gameEngine);
-    var unicorn = new Unicorn(gameEngine);
-    gameEngine.addEntity(bg);
-    gameEngine.addEntity(unicorn);
-    gameEngine.init(ctx);
-    gameEngine.start();
-});
-}, false);
+var gameManager = Object.create(GameManager);
+gameManager.start();
+
+// var ASSET_MANAGER = new AssetManager();
+// window.addEventListener("load", () => {
+//     ASSET_MANAGER.queueDownload("./img/RobotUnicorn.png");
+//     ASSET_MANAGER.downloadAll(() => {
+//     console.log("starting up da sheild");
+//     var canvas = document.getElementById('gameWorld');
+//     var ctx = canvas.getContext('2d');
+//     var gameEngine = new GameEngine();
+//     var bg = new Background(gameEngine);
+//     var unicorn = new Unicorn(gameEngine);
+//     gameEngine.addEntity(bg);
+//     gameEngine.addEntity(unicorn);
+//     gameEngine.init(ctx);
+//     gameEngine.start();
+// });
+// }, false);
 
